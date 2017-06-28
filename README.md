@@ -14,10 +14,10 @@ frec.txt
 
 THBONKFREGJVUMIYDALCSQWZPX
 
-EAORSNITUCMDLPGQBYVAZFJXKW
+EAOSRNIDLCTUMPBGVYQHFZJÑXKW
 
 This means that T will be E, H will be A, etc.
-The first one is the frecuency of the encrypted text, the second one is your language frecuency (in this case, it's spanish without Ñ)
+The first one is the frecuency of the encrypted text, the second one is your language frecuency
 
 text.txt
 asdflñkjasef lasnf sñadfj lñasnflkasnfkl nasklñh foñkjasñkfjasjdfasf
