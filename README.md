@@ -13,6 +13,7 @@ Example:
 frec.txt
 
 THBONKFREGJVUMIYDALCSQWZPX
+
 EAORSNITUCMDLPGQBYVAZFJXKW
 
 This means that T will be E, H will be A, etc.
