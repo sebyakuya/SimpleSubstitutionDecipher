@@ -3,37 +3,53 @@
 #
 import sys
 
-if len(sys.argv)!=3:
-	print "Error: faltan/sobran argumentos"
+print """
+##############################################################
+# Alvaro Reyes - Simple Sustitution Decipher                 #
+##############################################################
+# python SSD.py cipher.txt frequency.txt                     #
+##############################################################
+"""
+
+if len(sys.argv) is 1:
+	print "Howto: enter ciphertext and frequency file and you will get the translation"
+	print "Frequency file must have only two lines: frequency of ciphertext and frequency of language"
+	print "Example of frequency file:"
+	print "THBONKFREGJVUMIYDALCSQWZPX  <- Frequency of ciphertext"
+	print "EAORSNITUCMDLPGQBYVAZFJXKW  <- Frequency of language" 
+	print "You can use the frequencyanalyzer.py to get the frequency file"
 	exit()
 
-esp = "EAOSRNIDLCTUMPBGVYQHFZJÑXKW"
+if len(sys.argv)!=3:
+	print "Error: incorrect no. of arguments"
+	print "Correct input is: cipher.txt frequency.txt"
+	exit()
 
 try:
-	frecuencias = open(sys.argv[2],"rb").readlines()
+	frequencies = open(sys.argv[2],"rb").readlines()
 except:
-	print "Error al leer fichero de frecuencias"
+	print "Failed to read frequency file"
 	exit()
 
 frec_tmp = []
-for f in frecuencias:
+for f in frequencies:
 	frec_tmp.append(f.replace("\n","").replace("\r",""))
-frecuencias = frec_tmp
+frequencies = frec_tmp
 
-frec = frecuencias[0].upper()
-abc = frecuencias[1].upper()
+frec = frequencies[0].upper()
+abc = frequencies[1].upper()
 dicc = zip(frec.upper(),abc.upper())
 
-def texto(path):
+def getCipherText(path):
 	try:
 		op = open(path,"rb")
 		text = (op.read()).replace("\n","").replace("\r","") 
 		return text.upper()
 	except:
-		print "Error al leer fichero de datos"
+		print "Failed to read cipher text"
 		exit()
 
-def letraCorr(l):
+def fixedChar(l):
 	for tupla in dicc:
 		if tupla[0]==l:
 			return tupla[1]
@@ -41,15 +57,15 @@ def letraCorr(l):
 			pass
 	return l
 
-palabra = texto(sys.argv[1])
-print palabra + " -> "
+word = getCipherText(sys.argv[1])
+print word + " -> "
 print ""
 
-plano = ""
-for letra in palabra:
-	plano=plano+letraCorr(letra)
-print plano
+plaintext = ""
+for char in word:
+	plaintext=plaintext+fixedChar(char)
+print plaintext
 
 print ""
-print "FREC. TEXTO: "+frec
-print "FREC. DICC:  "+abc
+print "Text. freq. "+frec
+print "Dicc. freq.:  "+abc
