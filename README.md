@@ -23,3 +23,7 @@ text.txt
 asdflñkjasef lasnf sñadfj lñasnflkasnfkl nasklñh foñkjasñkfjasjdfasf
 
 The output will be the decrypted text.
+
+# V.2
+
+Now there's a frequency analyzer which provides the frec.txt for the SSD
