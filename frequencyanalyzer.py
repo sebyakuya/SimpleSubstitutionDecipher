@@ -13,7 +13,7 @@ print """
 """
 
 if len(sys.argv) is 1:
-	print "Howto: enter file to be analyzed and optionally the language you want to compare"
+	print "Howto: enter file to be analyzed and optionally the language you want to compare "
 	print "It returns a two-lined file with the frequency of the text and the frequency of the language"
 	exit()
 
